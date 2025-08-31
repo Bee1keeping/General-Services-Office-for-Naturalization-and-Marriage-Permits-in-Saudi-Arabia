@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب الخدمات العامة للتجنيس وتصاريح الزواج في المملكة العربية السعودية</title>
+    <meta name="description" content="نقدم خدمات تخليص المعاملات الإلكترونية، استخراج الجنسية السعودية، تجنيس أبناء المواطنات، والحصول على تصاريح الزواج من الخارج. تواصل معنا عبر واتساب.">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --dark-blue: #0a2e63;
+            --gold: #d4af37;
+            --orange: #ff7f50;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Noto Kufi Arabic', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* إضافة padding لمنع محتوى الموقع من الاختفاء تحت الهيدر */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 80px; /* ارتفاع ثابت للهيدر */
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        
+        .logo span {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .whatsapp-btn {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: var(--orange);
+        }
+        
+        .whatsapp-btn i {
+            margin-left: 8px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 46, 99, 0.9), rgba(10, 46, 99, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a2e63"/><path d="M0 0L100 100" stroke="%23d4af37" stroke-width="2"/><path d="M100 0L0 100" stroke="%23d4af37" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: var(--white);
+            text-align: center;
+            margin-top: -80px; /* تعويض الـ padding المضاف للـ body */
+            padding-top: 180px; /* زيادة الـ padding للأعلى */
+        }
+        
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--orange);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            padding: 12px 30px;
+            border: 2px solid var(--white);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark-blue);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 15px auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: var(--dark-blue);
+            color: var(--gold);
+            font-size: 2.5rem;
+            padding: 25px 0;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Steps Section */
+        .steps {
+            padding: 80px 0;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .step h3 {
+            color: var(--dark-blue);
+            margin: 20px 0;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .accordion {
+            margin-top: 40px;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accordion-header {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-content {
+            background-color: var(--white);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-whatsapp {
+            background-color: var(--light-gray);
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-whatsapp h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-whatsapp p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-large {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .whatsapp-large:hover {
+            background-color: #128C7E;
+        }
+        
+        .whatsapp-large i {
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-info h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+        
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo span {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            header {
+                height: auto;
+                padding: 10px 0;
+                position: relative;
+            }
+            
+            body {
+                padding-top: 0;
+            }
+            
+            .hero {
+                margin-top: 0;
+                padding-top: 100px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            
+            .logo span {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            
+            .contact-whatsapp {
+                padding: 40px 20px;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo span {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .service-card, .step {
+                margin-bottom: 30px;
+            }
+            
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .logo span {
+                font-size: 0.9rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.8rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav {
+                margin-top: 10px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/9660595606477" class="floating-whatsapp" target="_blank" aria-label="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                مكتب الخدمات العامة
+                <span>للتجنيس وتصاريح الزواج في المملكة العربية السعودية</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#services">الخدمات</a></li>
+                    <li><a href="#steps">خطوات العمل</a></li>
+                    <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/9660595606477" class="whatsapp-btn" target="_blank">
+                <span>واتساب</span>
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>مكتب الخدمات العامة للتجنيس وتصاريح الزواج</h1>
+            <p>نقدم خدمات متكاملة لتخليص المعاملات الإلكترونية، استخراج الجنسية السعودية، تجنيس أبناء المواطنات، والحصول على تصاريح الزواج من الخارج. خبرتنا تمتد لسنين في تقديم الحلول السريعة والمضمونة.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/9660595606477" class="btn-primary" target="_blank">تواصل عبر واتساب الآن</a>
+                <a href="#services" class="btn-secondary">تعرف على خدماتنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتخصصة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>استخراج الجنسية السعودية</h3>
+                        <p>نساعدك в استخراج الجنسية السعودية وفقًا للشروط واللوائح الرسمية، مع متابعة مستمرة حتى الحصول عليها.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تجنيس أبناء المواطنات</h3>
+                        <p>خدمة متكاملة لتجنيس أبناء المواطنات السعوديات وفقًا للأنظمة المعمول بها في المملكة العربية السعودية.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تصاريح الزواج من الخارج</h3>
+                        <p>نسهل لك إجراءات الحصول على تصريح الزواج من الخارج للمواطنين السعوديين بمختلف فئاتهم.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تخليص المعاملات الإلكترونية</h3>
+                        <p>نوفر خدمة متكاملة لتخليص المعاملات الحكومية إلكترونيًا لتوفير وقتك وجهدك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps" id="steps">
+        <div class="container">
+            <h2 class="section-title">خطوات العمل</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-phone-alt fa-3x" style="color: var(--dark-blue);"></i>
+                    <h3>التواصل الأولي</h3>
+                    <p>اتصل بنا أو راسلنا عبر الواتساب لمناقشة متطلباتك والخدمة المطلوبة.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-file-contract fa-3x" style="color: var(--dark-blue);"></i>
+                    <h3>تقديم المستندات</h3>
+                    <p>تقديم المستندات المطلوبة إلكترونيًا أو في مقرنا لدراسة الطلب.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-clipboard-check fa-3x" style="color: var(--dark-blue);"></i>
+                    <h3>المتابعة والتنفيذ</h3>
+                    <p>نقوم بمتابعة معاملتك لدى الجهات المختصة حتى الانتهاء منها.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-award fa-3x" style="color: var(--dark-blue);"></i>
+                    <h3>استلام الخدمة</h3>
+                    <p>استلام الخدمة المطلوبة بعد إكمال جميع الإجراءات بشكل رسمي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">الأسئلة الشائعة</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>كيف أحصل على الجنسية السعودية؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>الحصول على الجنسية السعودية يتطلب استيفاء الشروط المحددة من قبل الحكومة السعودية، والتي تشمل الإقامة الطويلة، والسلوك الحسن، والإلمام باللغة العربية، وغيرها من الشروط. نحن نقدم استشارات كاملة ونساعدك في تقديم الطلب والمستندات المطلوبة.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>ما هي شروط تجنيس زوجة المواطن السعودي?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>من شروط تجنيس زوجة المواطن السعودي أن تكون الإقامة نظامية، وألا تقل مدة الزواج عن 5 سنوات، وأن يكون الزوج سعودي الجنسية، بالإضافة إلى شروط أخرى. نوفر لك معلومات مفصلة ونساعدك في استكمال المتطلبات.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>هل تجنيس أبناء المواطنات متاح؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>نعم، تجنيس أبناء المواطنات السعوديات متاح وفق شروط محددة، منها أن تكون الأم سعودية الجنسية، وأن يكون الابن مولودًا داخل المملكة أو خارجها وفق ضوابط معينة. يمكننا مساعدتك في معرفة الشروط الكاملة وتقديم الطلب.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>ما هي مدة تنفيذ طلب التجنيس؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>مدة معالجة طلب التجنيس تختلف حسب نوع الطلب واكتمال المستندات، وعادة ما تستغرق عدة أشهر. نحن نضمن المتابعة المستمرة لحين انتهاء الطلب.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-whatsapp">
+                <h3>نحن هنا لمساعدتك</h3>
+                <p>للحصول على خدماتنا أو الاستفسار، يمكنك التواصل معنا مباشرة عبر الواتساب</p>
+                <a href="https://wa.me/9660595606477" class="whatsapp-large" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    تواصل عبر واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>مكتب الخدمات العامة</h3>
+                    <p>نقدم خدمات متكاملة في مجال تخليص المعاملات والتجنيس وتصاريح الزواج، مع فريق متخصص وذو خبرة طويلة.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+9660595606477" style="color: white;">+966 05 956 06477</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#steps">خطوات العمل</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="#">تخليص المعاملات الإلكترونية</a></li>
+                        <li><a href="#">استخراج الجنسية السعودية</a></li>
+                        <li><a href="#">تجنيس أبناء المواطنات</a></li>
+                        <li><a href="#">الحصول على تصاريح الزواج</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "مكتب الخدمات العامة للتجنيس وتصاريح الزواج",
+      "description": "نقدم خدمات تخليص المعاملات الإلكترونية، استخراج الجنسية السعودية، تجنيس أبناء المواطنات، والحصول على تصاريح الزواج من الخارج.",
+      "telephone": "+9660595606477",
+      "url": "https://example.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "SA"
+      },
+      "areaServed": "SA",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+9660595606477",
+        "contactOption": "https://wa.me/9660595606477"
+      },
+      "sameAs": [
+        "https://maps.app.goo.gl/TUzRjGfj1JMeDRiKA"
+      ]
+    }
+    </script>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+                
+                const icon = header.querySelector('i');
+                if (content.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
