@@ -1,0 +1,32 @@
+# ملف robots.txt لمكتب الخدمات العامة للتجنيس وتصاريح الزواج
+User-agent: *
+Allow: /
+
+# منع الوصول إلى المسارات الحساسة
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /tmp/
+
+# محركات البحث المحددة
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# رابط خريطة الموقع
+Sitemap: https://bee1keeping.github.io/General-Services-Office-for-Naturalization-and-Marriage-Permits-in-Saudi-Arabia/sitemap.xml
