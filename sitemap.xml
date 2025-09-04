@@ -1,5 +1,5 @@
 sitemap.xml
-atom.xml?redirect=false&start-index=1&max-results=500
+atom.xml?redirect=false&amp;start-index=1&amp;max-results=500
 rss.xml
 feeds/comments/default
 feeds/posts/default
